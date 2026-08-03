@@ -2,7 +2,6 @@
 
 ## Caso: Contaminante PM$_{10}$
 
-
 <p align="left">
   <img src="./assets_pm10_italia/logo_uni.png"
        alt="Logo de la Universidad Nacional de Ingeniería"
@@ -29,13 +28,12 @@
 
 **Lima — Perú**
 
-![Infografía introductoria sobre PM10 en Italia](assets_pm10_italia/PM10_Italia_v1.png)
-
 <p align="left">
   <img src="./assets_pm10_italia/PM10_Italia_v1.png"
-       alt="Infografia PM10 en Italia"
-       width="150">
+       alt="Infografía introductoria sobre PM10 en Italia"
+       width="1000">
 </p>
+
 ---
 
 ## Cómo leer este informe
@@ -62,10 +60,11 @@ PM significa *particulate matter*, o materia particulada. No es un gas: es una m
 >
 > Un micrómetro es una millonésima de metro. El número 10 no indica la cantidad de contaminación, sino el tamaño máximo de las partículas incluidas en esta categoría. La concentración se expresa en microgramos de partículas por metro cúbico de aire, es decir, $\mu\mathrm{g}\,\mathrm{m}^{-3}$.
 
-![Definición sencilla del PM10 y principales familias de fuentes.](assets_pm10_italia/14_v2_que_es_pm10.png)
-
-
-
+<p align="left">
+  <img src="./assets_pm10_italia/14_v2_que_es_pm10.png"
+       alt="Definición sencilla del PM10 y principales familias de fuentes."
+       width="380">
+</p>
 
 *Figura. Definición sencilla del PM$_{10}$ y principales familias de fuentes.*
 
@@ -81,7 +80,11 @@ En una ciudad, el PM$_{10}$ puede proceder del desgaste de frenos y neumáticos,
 
 El PM$_{10}$ es inhalable. Una parte se deposita en nariz y garganta y otra puede alcanzar tráquea y bronquios. Dentro de PM$_{10}$ existe una fracción más pequeña que puede penetrar más profundamente en los pulmones. La respuesta del organismo no depende solo de la presencia física de la partícula: también influyen su composición química y los procesos de inflamación y estrés oxidativo asociados a la exposición (World Health Organization, 2024; World Health Organization, 2025).
 
-![Esquema de los principales sistemas que pueden verse afectados por la contaminación particulada.](assets_pm10_italia/15_v2_impacto_salud_pm10.png)
+<p align="left">
+  <img src="./assets_pm10_italia/15_v2_impacto_salud_pm10.png"
+       alt="Esquema de los principales sistemas que pueden verse afectados por la contaminación particulada."
+       width="980">
+</p>
 
 *Figura. Esquema de los principales sistemas que pueden verse afectados por la contaminación particulada.*
 
@@ -97,7 +100,11 @@ La OMS estimó que en 2019 el 99% de la población mundial vivía en lugares don
 
 Para PM$_{10}$, la directriz anual de la OMS es 15 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ y la directriz de 24 horas es 45 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ (World Health Organization, 2021). La Unión Europea mantiene como referencia transitoria 40 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ para la media anual y 50 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ para la media diaria, con hasta 35 superaciones. Los valores que deberán alcanzarse en 2030 son 20 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ anuales y 45 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ diarios, con hasta 18 superaciones (European Parliament and Council of the European Union, 2024).
 
-![Comparación entre referencias anuales y algunos resultados del estudio.](assets_pm10_italia/16_comparacion_referencias_pm10.png)
+<p align="left">
+  <img src="./assets_pm10_italia/16_comparacion_referencias_pm10.png"
+       alt="Comparación entre referencias anuales y algunos resultados del estudio."
+       width="980">
+</p>
 
 *Figura. Comparación entre referencias anuales y algunos resultados del estudio.*
 
@@ -127,7 +134,11 @@ El dataset fue descargado del *EEA Air Quality Download Service*, portal de la A
 
 Un equipo de alto volumen aspira aire a un caudal controlado. El cabezal de entrada actúa como selector de tamaño: las partículas demasiado grandes son separadas y la fracción PM$_{10}$ continúa hacia un filtro. La masa acumulada en el filtro puede determinarse mediante procedimientos gravimétricos. Existen también métodos automáticos y ópticos, por lo que el inventario contiene nombres como BETA, gravimétrico, TEOM, nephelometry y OPC. La Directiva europea identifica EN 12341:2023 como método gravimétrico de referencia para PM$_{10}$ (European Parliament and Council of the European Union, 2024).
 
-![Esquema pedagógico de un muestreador de alto volumen para PM10, proporcionado para el estudio.](assets_pm10_italia/sistema_monitoreo_hi_vol.png)
+<p align="left">
+  <img src="./assets_pm10_italia/sistema_monitoreo_hi_vol.png"
+       alt="Esquema pedagógico de un muestreador de alto volumen para PM10, proporcionado para el estudio."
+       width="650">
+</p>
 
 *Figura. Esquema pedagógico de un muestreador de alto volumen para PM$_{10}$, proporcionado para el estudio.*
 
@@ -139,26 +150,37 @@ Un equipo de alto volumen aspira aire a un caudal controlado. El cabezal de entr
 
 El procesamiento no usa directamente todas las lecturas. Primero se aplican reglas de admisibilidad:
 
-$$A_{ift}=
+$$
+\begin{aligned}
+A_{ift}
+&=
 I\left\{
-\texttt{Validity}=1,\,
-\texttt{Verification}=1,\,
+\mathrm{Validity}=1,\,
+\mathrm{Verification}=1,\,
 Y_{ift}\ge 0
-\right\},$$
+\right\}
+\end{aligned}
+$$
 
 donde $Y_{ift}$ es una lectura del flujo $f$ en la estación $i$ y el tiempo $t$. La función $I\{\cdot\}$ vale 1 cuando todas las condiciones se cumplen y 0 en caso contrario.
 
 Si las lecturas son horarias, se exige un mínimo de 18 horas válidas en el día. La media diaria por flujo es:
 
-$$\overline{Y}_{ifd}
+$$
+\overline{Y}_{ifd}
 =
 \frac{1}{n_{ifd}}
-\sum_{t\in d}A_{ift}Y_{ift},
-\qquad n_{ifd}\ge18.$$
+\sum_{t\in d} A_{ift}Y_{ift},
+\qquad n_{ifd}\ge 18
+$$
 
 Cuando una estación tiene más de un flujo o método el mismo día, se toma la mediana entre flujos. Esta decisión reduce la influencia de un valor extremo proveniente de un único instrumento.
 
-![Secuencia completa desde los archivos EEA hasta los mapas y dashboards.](assets_pm10_italia/17_flujo_dataset_modelo.png)
+<p align="left">
+  <img src="./assets_pm10_italia/17_flujo_dataset_modelo.png"
+       alt="Secuencia completa desde los archivos EEA hasta los mapas y dashboards."
+       width="990">
+</p>
 
 *Figura. Secuencia completa desde los archivos EEA hasta los mapas y dashboards.*
 
@@ -166,7 +188,9 @@ Cuando una estación tiene más de un flujo o método el mismo día, se toma la 
 
 Para cada estación y año se calcula:
 
-$$C_{ia}=\frac{n_{ia}}{D_a},$$
+$$
+C_{ia}=\frac{n_{ia}}{D_a}
+$$
 
 donde $n_{ia}$ es el número de días con dato y $D_a$ es el número de días del año. Se considera válido un año de estación cuando $C_{ia}\ge0.75$.
 
@@ -185,11 +209,19 @@ donde $n_{ia}$ es el número de días con dato y $D_a$ es el número de días de
 | 2023 |                  555 |                549 |       344.8 |            365 | No          |
 | 2024 |                  566 |                554 |       343.0 |            365 | No          |
 
-![Crecimiento de la red válida y evolución de la concentración media entre estaciones.](assets_pm10_italia/01_cobertura_y_tendencia_nacional.png)
+<p align="left">
+  <img src="./assets_pm10_italia/01_cobertura_y_tendencia_nacional.png"
+       alt="Crecimiento de la red válida y evolución de la concentración media entre estaciones."
+       width="900">
+</p>
 
 *Figura. Crecimiento de la red válida y evolución de la concentración media entre estaciones.*
 
-![Matriz de cobertura por estación y año. El espacio vacío de 2014 muestra la discontinuidad completa.](assets_pm10_italia/02_matriz_cobertura_estacion_anio.png)
+<p align="left">
+  <img src="./assets_pm10_italia/02_matriz_cobertura_estacion_anio.png"
+       alt="Matriz de cobertura por estación y año. El espacio vacío de 2014 muestra la discontinuidad completa."
+       width="930">
+</p>
 
 *Figura. Matriz de cobertura por estación y año. El espacio vacío de 2014 muestra la discontinuidad completa.*
 
@@ -197,7 +229,11 @@ donde $n_{ia}$ es el número de días con dato y $D_a$ es el número de días de
 
 Las coordenadas de las estaciones se obtienen del servicio espacial oficial de la EEA. Las estaciones se unen a las regiones NUTS 2 de Eurostat, que son divisiones territoriales comparables para estadísticas regionales europeas (Eurostat GISCO, 2024). Para calcular distancias se usa EPSG:3035, una proyección métrica adecuada para Europa.
 
-![Red histórica de estaciones PM10 y límites regionales NUTS 2 de Italia.](assets_pm10_italia/03_red_estaciones_nuts2.png)
+<p align="left">
+  <img src="./assets_pm10_italia/03_red_estaciones_nuts2.png"
+       alt="Red histórica de estaciones PM10 y límites regionales NUTS 2 de Italia."
+       width="720">
+</p>
 
 *Figura. Red histórica de estaciones PM$_{10}$ y límites regionales NUTS 2 de Italia.*
 
@@ -241,15 +277,19 @@ El modelo utiliza dos ideas:
 
 Para cada estación se usan únicamente años anteriores a 2024, evitando que el modelo “vea” el resultado que debe predecir. La climatología reciente es:
 
-$$H_i
+$$
+H_i
 =
 \frac{1}{m_i}
 \sum_{a=2019}^{2023}
-\overline{Y}_{ia},$$
+\overline{Y}_{ia}
+$$
 
 con los años válidos disponibles. También se calcula una media histórica más amplia, una desviación estándar, el número de años y una tendencia lineal:
 
-$$\overline{Y}_{ia}=\alpha_i+b_i a+e_{ia}.$$
+$$
+\overline{Y}_{ia}=\alpha_i+b_i a+e_{ia}
+$$
 
 El parámetro $b_i$ expresa el cambio promedio anual de la estación. Un valor negativo indica descenso histórico y uno positivo, aumento.
 
@@ -263,21 +303,31 @@ El parámetro $b_i$ expresa el cambio promedio anual de la estación. Un valor n
 
 Ejemplo de covariables históricas mostradas por el notebook.
 
-![Climatología reciente, tendencia histórica y media observada de 2024.](assets_pm10_italia/04_climatologia_tendencia_y_2024.png)
+<p align="left">
+  <img src="./assets_pm10_italia/04_climatologia_tendencia_y_2024.png"
+       alt="Climatología reciente, tendencia histórica y media observada de 2024."
+       width="990">
+</p>
 
 *Figura. Climatología reciente, tendencia histórica y media observada de 2024.*
 
 ### El modelo en dos etapas
 
-![Estructura conceptual de la superficie nacional estimada.](assets_pm10_italia/18_modelo_dos_etapas.png)
+<p align="left">
+  <img src="./assets_pm10_italia/18_modelo_dos_etapas.png"
+       alt="Estructura conceptual de la superficie nacional estimada."
+       width="990">
+</p>
 
 *Figura. Estructura conceptual de la superficie nacional estimada.*
 
 En la primera etapa, un proceso gaussiano interpola la climatología $H_i$ y produce $\widehat H(s)$. En la segunda, la concentración de 2024 se relaciona con esa climatología y se modela espacialmente lo que todavía queda sin explicar:
 
-$$Y_{2024}(s)
+$$
+Y_{2024}(s)
 =
-\beta_0+\beta_1\widehat H(s)+W_R(s)+\varepsilon(s).$$
+\beta_0+\beta_1\widehat{H}(s)+W_R(s)+\varepsilon(s)
+$$
 
 $W_R(s)$ es la corrección espacial residual. $\varepsilon(s)$ representa variación local o error no explicado.
 
@@ -299,19 +349,27 @@ $$
 \mathbf{W}
 =
 \begin{bmatrix}
-W(s_1)&\cdots&W(s_n)
+W(s_1) & \cdots & W(s_n)
 \end{bmatrix}^{\top}
 \sim
-\mathcal{N}_n(\boldsymbol{\mu},\boldsymbol{\Sigma}),
+\mathcal{N}_n\!\left(\boldsymbol{\mu},\boldsymbol{\Sigma}\right)
 $$
 
 donde $\mu_i=\mu(s_i)$ y $\Sigma_{ij}=\kappa(s_i,s_j)$.
 
 El modelo lineal espacial general es:
 
-$$Y(s_i)=\mathbf{x}(s_i)^\top\boldsymbol{\beta}+W(s_i)+\varepsilon_i,
-\qquad
-\varepsilon_i\overset{\mathrm{iid}}{\sim}\mathcal{N}(0,\tau^2).$$
+$$
+\begin{aligned}
+Y(s_i)
+&=
+\mathbf{x}(s_i)^{\top}\boldsymbol{\beta}
++W(s_i)+\varepsilon_i, \\
+\varepsilon_i
+&\overset{\mathrm{iid}}{\sim}
+\mathcal{N}(0,\tau^2)
+\end{aligned}
+$$
 
 La parte $\mathbf{x}(s_i)^\top\boldsymbol{\beta}$ representa la variación explicada. $W(s_i)$ representa una superficie espacial latente y $\tau^2$ la variación no espacial.
 
@@ -319,9 +377,11 @@ La parte $\mathbf{x}(s_i)^\top\boldsymbol{\beta}$ representa la variación expli
 
 Un proceso es estacionario cuando su distribución no cambia al trasladar el sistema de coordenadas. Es isotrópico cuando la dependencia depende de la distancia, pero no de la dirección. Estas condiciones simplifican la covarianza:
 
-$$\operatorname{Cov}\{W(s),W(s')\}
+$$
+\operatorname{Cov}\!\left\{W(s),W(s')\right\}
 =
-\sigma^2\rho(\|s-s'\|;\phi,\nu).$$
+\sigma^2\rho\!\left(\lVert s-s'\rVert;\phi,\nu\right)
+$$
 
 En Italia estas hipótesis son aproximaciones, porque montañas, costas e islas pueden crear comportamientos diferentes por dirección y región.
 
@@ -329,18 +389,22 @@ En Italia estas hipótesis son aproximaciones, porque montañas, costas e islas 
 
 El semivariograma cuantifica cuánto difieren dos observaciones separadas por una distancia:
 
-$$\gamma(s,s')
+$$
+\gamma(s,s')
 =
 \frac{1}{2}
-\operatorname{Var}\{W(s)-W(s')\}.$$
+\operatorname{Var}\!\left\{W(s)-W(s')\right\}
+$$
 
 Su estimador por intervalos de distancia es:
 
-$$\widehat{\gamma}(d)
+$$
+\widehat{\gamma}(d)
 =
 \frac{1}{2N(d)}
 \sum_{(i,j)\in N(d)}
-\{y(s_i)-y(s_j)\}^{2}.$$
+\left\{y(s_i)-y(s_j)\right\}^{2}
+$$
 
 En lenguaje sencillo, si $\widehat{\gamma}(d)$ aumenta con la distancia, las estaciones lejanas son menos parecidas.
 
@@ -348,16 +412,17 @@ En lenguaje sencillo, si $\widehat{\gamma}(d)$ aumenta con la distancia, las est
 
 El modelo usa una función Matérn con $\nu=3/2$:
 
-$$\rho(h;\phi,\nu)
+$$
+\rho(h;\phi,\nu)
 =
 \frac{2^{1-\nu}}{\Gamma(\nu)}
 \left(
-\frac{\sqrt{2\nu}h}{\phi}
-\right)^\nu
-K_\nu
-\left(
-\frac{\sqrt{2\nu}h}{\phi}
-\right),$$
+\frac{\sqrt{2\nu}\,h}{\phi}
+\right)^{\nu}
+K_{\nu}\!\left(
+\frac{\sqrt{2\nu}\,h}{\phi}
+\right)
+$$
 
 donde $h=\|s-s'\|$. $\phi$ controla la escala espacial y $\nu$ la suavidad. $K_\nu$ es una función de Bessel modificada.
 
@@ -369,44 +434,53 @@ donde $h=\|s-s'\|$. $\phi$ controla la escala espacial y $\nu$ la suavidad. $K_\
 
 Para el modelo matricial
 
-$$\mathbf{Y}\sim
-\mathcal{N}_n
-\left(
+$$
+\mathbf{Y}
+\sim
+\mathcal{N}_n\!\left(
 \mathbf{X}\boldsymbol{\beta},
-\sigma^2\mathbf{R}_\phi+\tau^2\mathbf{I}
-\right),$$
+\sigma^2\mathbf{R}_{\phi}+\tau^2\mathbf{I}
+\right)
+$$
 
 los parámetros se ajustan maximizando la verosimilitud. La predicción en nuevos lugares se obtiene mediante la distribución normal condicional:
 
-$$\mathbf{Y}_*\mid\mathbf{Y}=\mathbf{y}
+$$
+\mathbf{Y}_{*}\mid\mathbf{Y}=\mathbf{y}
 \sim
-\mathcal{N}
-\left(
-\boldsymbol{\mu}_{*|y},
-\boldsymbol{\Sigma}_{*|y}
-\right),$$
+\mathcal{N}\!\left(
+\boldsymbol{\mu}_{*\mid y},
+\boldsymbol{\Sigma}_{*\mid y}
+\right)
+$$
 
-$$\boldsymbol{\mu}_{*|y}
+$$
+\boldsymbol{\mu}_{*\mid y}
 =
-\mathbf{X}_*\boldsymbol{\beta}
+\mathbf{X}_{*}\boldsymbol{\beta}
 +
 \boldsymbol{\Sigma}_{*,y}
 \left(
 \boldsymbol{\Sigma}_{y}+\tau^2\mathbf{I}
 \right)^{-1}
-(\mathbf{y}-\mathbf{X}\boldsymbol{\beta}),$$
+\left(
+\mathbf{y}-\mathbf{X}\boldsymbol{\beta}
+\right)
+$$
 
-$$\boldsymbol{\Sigma}_{*|y}
+$$
+\boldsymbol{\Sigma}_{*\mid y}
 =
 \tau^2\mathbf{I}
 +
-\boldsymbol{\Sigma}_*
+\boldsymbol{\Sigma}_{*}
 -
 \boldsymbol{\Sigma}_{*,y}
 \left(
 \boldsymbol{\Sigma}_{y}+\tau^2\mathbf{I}
 \right)^{-1}
-\boldsymbol{\Sigma}_{y,*}.$$
+\boldsymbol{\Sigma}_{y,*}
+$$
 
 La primera expresión produce el mapa de concentración. La segunda produce el mapa de incertidumbre.
 
@@ -447,25 +521,24 @@ Una validación aleatoria puede ser demasiado optimista porque coloca estaciones
 
 Sea $y_i$ el valor observado, $\widehat y_i$ la predicción y $n$ el número de estaciones evaluadas.
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \operatorname{RMSE}
 &=
-\sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i-\widehat y_i)^2},
-\\
+\sqrt{\frac{1}{n}\sum_{i=1}^{n}\left(y_i-\widehat{y}_i\right)^2}, \\
 \operatorname{MAE}
 &=
-\frac{1}{n}\sum_{i=1}^{n}|y_i-\widehat y_i|,
-\\
+\frac{1}{n}\sum_{i=1}^{n}\left|y_i-\widehat{y}_i\right|, \\
 R^2
 &=
 1-
-\frac{\sum_i(y_i-\widehat y_i)^2}
-{\sum_i(y_i-\overline y)^2},
-\\
+\frac{\sum_i\left(y_i-\widehat{y}_i\right)^2}
+{\sum_i\left(y_i-\overline{y}\right)^2}, \\
 \operatorname{Sesgo}
 &=
-\frac{1}{n}\sum_i(\widehat y_i-y_i).
-\end{aligned}$$
+\frac{1}{n}\sum_i\left(\widehat{y}_i-y_i\right)
+\end{aligned}
+$$
 
 > **Cómo interpretar las métricas**
 >
@@ -481,16 +554,28 @@ R^2
 
 Desempeño medio por validación espacial.
 
-![Comparación de RMSE y <em>R</em><sup>2</sup> entre los modelos candidatos.](assets_pm10_italia/05_comparacion_modelos_historicos.png)
+<p align="left">
+  <img src="./assets_pm10_italia/05_comparacion_modelos_historicos.png"
+       alt="Comparación de RMSE y R^2 entre los modelos candidatos."
+       width="990">
+</p>
 
 *Figura. Comparación de RMSE y <em>R</em><sup>2</sup> entre los modelos candidatos.*
 
 > **Evaluación del mejor modelo**
 >
-> El modelo Ridge más proceso gaussiano residual obtuvo: $$RMSE=2.718,\qquad
-> MAE=1.884,\qquad
-> R^2=0.696,\qquad
-> Sesgo=0.140.$$ El RMSE es 49.6% menor que el de la media de entrenamiento. El $R^2$ indica que el modelo reproduce aproximadamente el 70% de la variación observada en la validación espacial. El sesgo es pequeño frente a una media nacional cercana a 22.5 $\mu\mathrm{g}\,\mathrm{m}^{-3}$.
+> El modelo Ridge más proceso gaussiano residual obtuvo:
+
+$$
+\begin{aligned}
+\operatorname{RMSE} &= 2.718, \\
+\operatorname{MAE} &= 1.884, \\
+R^2 &= 0.696, \\
+\operatorname{Sesgo} &= 0.140
+\end{aligned}
+$$
+
+> El RMSE es 49.6% menor que el de la media de entrenamiento. El $R^2$ indica que el modelo reproduce aproximadamente el 70% de la variación observada en la validación espacial. El sesgo es pequeño frente a una media nacional cercana a 22.5 $\mu\mathrm{g}\,\mathrm{m}^{-3}$.
 
 > **Conclusión correcta sobre la calidad del modelo**
 >
@@ -522,7 +607,11 @@ En 2024, las 554 estaciones válidas presentan una media entre estaciones de 22.
 
 ### Superficie continua e incertidumbre
 
-![Predicción nacional de PM10, incertidumbre y probabilidad de superar 20 <em>μ</em>g m<sup>−3</sup>.](assets_pm10_italia/06_superficie_incertidumbre_probabilidad.png)
+<p align="left">
+  <img src="./assets_pm10_italia/06_superficie_incertidumbre_probabilidad.png"
+       alt="Predicción nacional de PM10, incertidumbre y probabilidad de superar 20 μg m^−3."
+       width="990">
+</p>
 
 *Figura. Predicción nacional de PM$_{10}$, incertidumbre y probabilidad de superar 20 <em>μ</em>g m<sup>−3</sup>.*
 
@@ -558,11 +647,19 @@ Regiones con mayor media predicha de PM$_{10}$ en 2024.
 
 DE predictiva: desviación estándar de la predicción; valores mayores indican más incertidumbre. Prob. $>20$: probabilidad media estimada de superar 20 $\mu\mathrm{g}\,\mathrm{m}^{-3}$. Días $>50$: promedio anual de días por estación con concentración diaria superior a 50 $\mu\mathrm{g}\,\mathrm{m}^{-3}$. La tendencia está expresada en $\mu\mathrm{g}\,\mathrm{m}^{-3}$ por año.
 
-![Coropleta de concentración predicha por región NUTS 2.](assets_pm10_italia/07_coropleta_regiones_nuts2.png)
+<p align="left">
+  <img src="./assets_pm10_italia/07_coropleta_regiones_nuts2.png"
+       alt="Coropleta de concentración predicha por región NUTS 2."
+       width="760">
+</p>
 
 *Figura. Coropleta de concentración predicha por región NUTS 2.*
 
-![Atlas de las regiones con mayor concentración predicha.](assets_pm10_italia/08_atlas_regiones_top.png)
+<p align="left">
+  <img src="./assets_pm10_italia/08_atlas_regiones_top.png"
+       alt="Atlas de las regiones con mayor concentración predicha."
+       width="990">
+</p>
 
 *Figura. Atlas de las regiones con mayor concentración predicha.*
 
@@ -584,11 +681,19 @@ Emilia-Romagna y Lazio superan 21.9 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ predichos. 
 
 ### Cambios a través del tiempo
 
-![Trayectorias históricas de las regiones con mayor concentración en 2024.](assets_pm10_italia/11_tendencias_regiones_top.png)
+<p align="left">
+  <img src="./assets_pm10_italia/11_tendencias_regiones_top.png"
+       alt="Trayectorias históricas de las regiones con mayor concentración en 2024."
+       width="990">
+</p>
 
 *Figura. Trayectorias históricas de las regiones con mayor concentración en 2024.*
 
-![Matriz región–año de la concentración media de PM10.](assets_pm10_italia/12_matriz_region_anio.png)
+<p align="left">
+  <img src="./assets_pm10_italia/12_matriz_region_anio.png"
+       alt="Matriz región–año de la concentración media de PM10."
+       width="990">
+</p>
 
 *Figura. Matriz región–año de la concentración media de PM$_{10}$.*
 
@@ -613,11 +718,19 @@ El notebook asigna cada estación al centro urbano italiano más próximo dentro
 | Mestre         | 29.70 |   29.70 |          2 |      47.0 |    -0.418 |        147 662 |
 | Brera          | 29.60 |   29.60 |          2 |      50.5 |    -0.873 |         18 492 |
 
-![Ranking de entornos urbanos por concentración media observada.](assets_pm10_italia/09_ranking_ciudades.png)
+<p align="left">
+  <img src="./assets_pm10_italia/09_ranking_ciudades.png"
+       alt="Ranking de entornos urbanos por concentración media observada."
+       width="900">
+</p>
 
 *Figura. Ranking de entornos urbanos por concentración media observada.*
 
-![Atlas geoespacial de los seis entornos urbanos principales.](assets_pm10_italia/10_atlas_ciudades_top.png)
+<p align="left">
+  <img src="./assets_pm10_italia/10_atlas_ciudades_top.png"
+       alt="Atlas geoespacial de los seis entornos urbanos principales."
+       width="990">
+</p>
 
 *Figura. Atlas geoespacial de los seis entornos urbanos principales.*
 
@@ -693,7 +806,11 @@ El dashboard Folium permite activar o desactivar capas:
 
 ### Dashboard analítico
 
-![Dashboard analítico con evolución nacional, regiones, ciudades y desempeño de modelos.](assets_pm10_italia/13_dashboard_analitico.png)
+<p align="left">
+  <img src="./assets_pm10_italia/13_dashboard_analitico.png"
+       alt="Dashboard analítico con evolución nacional, regiones, ciudades y desempeño de modelos."
+       width="990">
+</p>
 
 *Figura. Dashboard analítico con evolución nacional, regiones, ciudades y desempeño de modelos.*
 
@@ -735,11 +852,12 @@ La siguiente versión debe incorporar meteorología diaria, elevación, uso del 
 
 Una extensión diaria puede escribirse como:
 
-$$\log\{1+Y(s,t)\}
+$$
+\log\!\left\{1+Y(s,t)\right\}
 =
-\mathbf{x}(s,t)^\top\boldsymbol{\beta}
-+
-W(s)+U(t)+V(s,t)+\varepsilon(s,t),$$
+\mathbf{x}(s,t)^{\top}\boldsymbol{\beta}
++W(s)+U(t)+V(s,t)+\varepsilon(s,t)
+$$
 
 donde $U(t)$ representa la dependencia temporal y $V(s,t)$ una interacción espacio–tiempo.
 
