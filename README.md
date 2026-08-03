@@ -1,6 +1,6 @@
 # Contaminación del Aire en Italia
 
-## Caso: Contaminante PM$_{10}$
+## Caso: Contaminante PM<sub>10</sub>
 
 <p align="left">
   <img src="./assets_pm10_italia/logo_uni.png"
@@ -21,7 +21,7 @@
 | **Curso** | Estadística Espacial — DES332 |
 | **Profesor** | Dr. Erick Chacón Montalván |
 | **Fuente de datos** | EEA Air Quality Download Service |
-| **Contaminante** | PM$_{10}$ |
+| **Contaminante** | PM<sub>10</sub> |
 | **Periodo analizado** | 2013–2024, sin observaciones en 2014 |
 | **Año de evaluación** | 2024 |
 | **Fecha** | 1 de agosto de 2026 |
@@ -31,7 +31,7 @@
 <p align="left">
   <img src="./assets_pm10_italia/PM10_Italia_v1.png"
        alt="Infografía introductoria sobre PM10 en Italia"
-       width="1000">
+       width="800">
 </p>
 
 ---
@@ -40,45 +40,45 @@
 
 > **Ruta de lectura**
 >
-> El informe empieza con una pregunta sencilla: **¿qué es el PM$_{10}$ y por qué puede ser dañino?** Después se explica de dónde salen los datos y cómo funcionan las estaciones de monitoreo. Solo entonces se introduce el modelo geoespacial: primero con una explicación intuitiva y luego con la formulación estadística completa. Finalmente se presentan los indicadores de desempeño, los mapas de Italia, los resultados por regiones y ciudades, y los dos dashboards.
+> El informe empieza con una pregunta sencilla: **¿qué es el PM<sub>10</sub> y por qué puede ser dañino?** Después se explica de dónde salen los datos y cómo funcionan las estaciones de monitoreo. Solo entonces se introduce el modelo geoespacial: primero con una explicación intuitiva y luego con la formulación estadística completa. Finalmente se presentan los indicadores de desempeño, los mapas de Italia, los resultados por regiones y ciudades, y los dos dashboards.
 
 > **Diferencia entre concentración, exposición y efecto sanitario**
 >
-> La concentración es la cantidad de PM$_{10}$ medida en el aire. La exposición depende además del lugar donde vive o trabaja una persona, el tiempo que permanece allí, la ventilación y su movilidad. El efecto sanitario también depende de edad, enfermedades previas y otras condiciones. Por ello, los mapas de este estudio muestran **presión ambiental potencial**; no diagnostican enfermedades ni calculan muertes atribuibles.
+> La concentración es la cantidad de PM<sub>10</sub> medida en el aire. La exposición depende además del lugar donde vive o trabaja una persona, el tiempo que permanece allí, la ventilación y su movilidad. El efecto sanitario también depende de edad, enfermedades previas y otras condiciones. Por ello, los mapas de este estudio muestran **presión ambiental potencial**; no diagnostican enfermedades ni calculan muertes atribuibles.
 
 > **Datos centrales del estudio**
 >
-> Se procesaron 569 archivos Parquet con 8,973,629 registros. Se identificaron 567 estaciones y 554 cumplieron el criterio de cobertura para 2024. El mejor modelo obtuvo RMSE de 2.718 $\mu\mathrm{g}\,\mathrm{m}^{-3}$, MAE de 1.884 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ y $R^2$ espacial de 0.696.
+> Se procesaron 569 archivos Parquet con 8,973,629 registros. Se identificaron 567 estaciones y 554 cumplieron el criterio de cobertura para 2024. El mejor modelo obtuvo RMSE de 2.718 µg/m³, MAE de 1.884 µg/m³ y $R^2$ espacial de 0.696.
 
-## ¿Qué es el PM$_{10}$ y por qué importa?
+## ¿Qué es el PM<sub>10</sub> y por qué importa?
 
-### Explicación General del PM$_{10}$
+### Explicación General del PM<sub>10</sub>
 
-PM significa *particulate matter*, o materia particulada. No es un gas: es una mezcla de pequeñas partículas sólidas y gotas líquidas que permanecen suspendidas en el aire. La expresión PM$_{10}$ agrupa las partículas cuyo diámetro aerodinámico es igual o menor que 10 micrómetros. Su composición puede incluir polvo mineral, sales, hollín, metales, sulfatos, nitratos y material orgánico (World Health Organization, 2024; Clarity Movement, 2026).
+PM significa *particulate matter*, o materia particulada. No es un gas: es una mezcla de pequeñas partículas sólidas y gotas líquidas que permanecen suspendidas en el aire. La expresión PM<sub>10</sub> agrupa las partículas cuyo diámetro aerodinámico es igual o menor que 10 micrómetros. Su composición puede incluir polvo mineral, sales, hollín, metales, sulfatos, nitratos y material orgánico (World Health Organization, 2024; Clarity Movement, 2026).
 
 > **¿Qué significa “10 micrómetros”?**
 >
-> Un micrómetro es una millonésima de metro. El número 10 no indica la cantidad de contaminación, sino el tamaño máximo de las partículas incluidas en esta categoría. La concentración se expresa en microgramos de partículas por metro cúbico de aire, es decir, $\mu\mathrm{g}\,\mathrm{m}^{-3}$.
+> Un micrómetro es una millonésima de metro. El número 10 no indica la cantidad de contaminación, sino el tamaño máximo de las partículas incluidas en esta categoría. La concentración se expresa en microgramos de partículas por metro cúbico de aire, es decir, µg/m³.
 
 <p align="left">
   <img src="./assets_pm10_italia/14_v2_que_es_pm10.png"
        alt="Definición sencilla del PM10 y principales familias de fuentes."
-       width="380">
+       width="980">
 </p>
 
-*Figura. Definición sencilla del PM$_{10}$ y principales familias de fuentes.*
+*Figura. Definición sencilla del PM<sub>10</sub> y principales familias de fuentes.*
 
 ### ¿De dónde proviene?
 
-En una ciudad, el PM$_{10}$ puede proceder del desgaste de frenos y neumáticos, del polvo que vuelve a levantarse por el paso de vehículos, de obras de construcción, de actividades industriales y de combustión. En zonas rurales también puede relacionarse con agricultura, movimiento de suelo y polvo natural. Incendios y transporte de polvo a larga distancia pueden elevar las concentraciones incluso lejos de la fuente original (Clarity Movement, 2026; World Health Organization, 2024).
+En una ciudad, el PM<sub>10</sub> puede proceder del desgaste de frenos y neumáticos, del polvo que vuelve a levantarse por el paso de vehículos, de obras de construcción, de actividades industriales y de combustión. En zonas rurales también puede relacionarse con agricultura, movimiento de suelo y polvo natural. Incendios y transporte de polvo a larga distancia pueden elevar las concentraciones incluso lejos de la fuente original (Clarity Movement, 2026; World Health Organization, 2024).
 
 > **Una idea importante**
 >
-> Una concentración alta no identifica automáticamente una única fuente. El mapa muestra *dónde* hay mayor PM$_{10}$; para responder *por qué* es alto se necesitan variables adicionales, como viento, lluvia, tráfico, industria, uso de suelo y topografía.
+> Una concentración alta no identifica automáticamente una única fuente. El mapa muestra *dónde* hay mayor PM<sub>10</sub>; para responder *por qué* es alto se necesitan variables adicionales, como viento, lluvia, tráfico, industria, uso de suelo y topografía.
 
 ### ¿Cómo entra al organismo?
 
-El PM$_{10}$ es inhalable. Una parte se deposita en nariz y garganta y otra puede alcanzar tráquea y bronquios. Dentro de PM$_{10}$ existe una fracción más pequeña que puede penetrar más profundamente en los pulmones. La respuesta del organismo no depende solo de la presencia física de la partícula: también influyen su composición química y los procesos de inflamación y estrés oxidativo asociados a la exposición (World Health Organization, 2024; World Health Organization, 2025).
+El PM<sub>10</sub> es inhalable. Una parte se deposita en nariz y garganta y otra puede alcanzar tráquea y bronquios. Dentro de PM<sub>10</sub> existe una fracción más pequeña que puede penetrar más profundamente en los pulmones. La respuesta del organismo no depende solo de la presencia física de la partícula: también influyen su composición química y los procesos de inflamación y estrés oxidativo asociados a la exposición (World Health Organization, 2024; World Health Organization, 2025).
 
 <p align="left">
   <img src="./assets_pm10_italia/15_v2_impacto_salud_pm10.png"
@@ -88,7 +88,7 @@ El PM$_{10}$ es inhalable. Una parte se deposita en nariz y garganta y otra pued
 
 *Figura. Esquema de los principales sistemas que pueden verse afectados por la contaminación particulada.*
 
-La evidencia internacional relaciona la contaminación del aire con enfermedades respiratorias y cardiovasculares, accidente cerebrovascular, enfermedad pulmonar obstructiva crónica, infecciones respiratorias y cáncer de pulmón. Estas cifras se refieren a la contaminación del aire y a la mezcla de contaminantes, no exclusivamente al PM$_{10}$ (World Health Organization, 2024).
+La evidencia internacional relaciona la contaminación del aire con enfermedades respiratorias y cardiovasculares, accidente cerebrovascular, enfermedad pulmonar obstructiva crónica, infecciones respiratorias y cáncer de pulmón. Estas cifras se refieren a la contaminación del aire y a la mezcla de contaminantes, no exclusivamente al PM<sub>10</sub> (World Health Organization, 2024).
 
 > **Grupos que requieren mayor protección**
 >
@@ -96,9 +96,9 @@ La evidencia internacional relaciona la contaminación del aire con enfermedades
 
 ### Dimensión mundial y valores de referencia
 
-La OMS estimó que en 2019 el 99% de la población mundial vivía en lugares donde no se cumplían sus directrices de calidad del aire. La contaminación exterior se asoció con 4.2 millones de muertes prematuras y la contaminación exterior más la doméstica con 6.7 millones por año (World Health Organization, 2024). Estas cifras describen el problema mundial de la contaminación atmosférica y no deben interpretarse como muertes causadas únicamente por PM$_{10}$.
+La OMS estimó que en 2019 el 99% de la población mundial vivía en lugares donde no se cumplían sus directrices de calidad del aire. La contaminación exterior se asoció con 4.2 millones de muertes prematuras y la contaminación exterior más la doméstica con 6.7 millones por año (World Health Organization, 2024). Estas cifras describen el problema mundial de la contaminación atmosférica y no deben interpretarse como muertes causadas únicamente por PM<sub>10</sub>.
 
-Para PM$_{10}$, la directriz anual de la OMS es 15 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ y la directriz de 24 horas es 45 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ (World Health Organization, 2021). La Unión Europea mantiene como referencia transitoria 40 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ para la media anual y 50 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ para la media diaria, con hasta 35 superaciones. Los valores que deberán alcanzarse en 2030 son 20 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ anuales y 45 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ diarios, con hasta 18 superaciones (European Parliament and Council of the European Union, 2024).
+Para PM<sub>10</sub>, la directriz anual de la OMS es 15 µg/m³ y la directriz de 24 horas es 45 µg/m³ (World Health Organization, 2021). La Unión Europea mantiene como referencia transitoria 40 µg/m³ para la media anual y 50 µg/m³ para la media diaria, con hasta 35 superaciones. Los valores que deberán alcanzarse en 2030 son 20 µg/m³ anuales y 45 µg/m³ diarios, con hasta 18 superaciones (European Parliament and Council of the European Union, 2024).
 
 <p align="left">
   <img src="./assets_pm10_italia/16_comparacion_referencias_pm10.png"
@@ -116,7 +116,7 @@ Para PM$_{10}$, la directriz anual de la OMS es 15 $\mu\mathrm{g}\,\mathrm{m}^{-
 
 ### Fuente oficial
 
-El dataset fue descargado del *EEA Air Quality Download Service*, portal de la Agencia Europea de Medio Ambiente. Se seleccionó Italia, el contaminante PM$_{10}$ y el flujo E1a, correspondiente a mediciones primarias validadas reportadas por los países. El portal permite descargar series desde 2013 y diferenciar datos validados E1a de datos más recientes aún no validados (European Environment Agency, 2026a; European Environment Agency, 2026b).
+El dataset fue descargado del *EEA Air Quality Download Service*, portal de la Agencia Europea de Medio Ambiente. Se seleccionó Italia, el contaminante PM<sub>10</sub> y el flujo E1a, correspondiente a mediciones primarias validadas reportadas por los países. El portal permite descargar series desde 2013 y diferenciar datos validados E1a de datos más recientes aún no validados (European Environment Agency, 2026a; European Environment Agency, 2026b).
 
 > **Inventario reconstruido**
 >
@@ -130,9 +130,9 @@ El dataset fue descargado del *EEA Air Quality Download Service*, portal de la A
 > | Registros estación–día            | 1,726,243 |
 > | Estaciones válidas para 2024      |       554 |
 
-### Cómo funciona una estación de PM$_{10}$
+### Cómo funciona una estación de PM<sub>10</sub>
 
-Un equipo de alto volumen aspira aire a un caudal controlado. El cabezal de entrada actúa como selector de tamaño: las partículas demasiado grandes son separadas y la fracción PM$_{10}$ continúa hacia un filtro. La masa acumulada en el filtro puede determinarse mediante procedimientos gravimétricos. Existen también métodos automáticos y ópticos, por lo que el inventario contiene nombres como BETA, gravimétrico, TEOM, nephelometry y OPC. La Directiva europea identifica EN 12341:2023 como método gravimétrico de referencia para PM$_{10}$ (European Parliament and Council of the European Union, 2024).
+Un equipo de alto volumen aspira aire a un caudal controlado. El cabezal de entrada actúa como selector de tamaño: las partículas demasiado grandes son separadas y la fracción PM<sub>10</sub> continúa hacia un filtro. La masa acumulada en el filtro puede determinarse mediante procedimientos gravimétricos. Existen también métodos automáticos y ópticos, por lo que el inventario contiene nombres como BETA, gravimétrico, TEOM, nephelometry y OPC. La Directiva europea identifica EN 12341:2023 como método gravimétrico de referencia para PM<sub>10</sub> (European Parliament and Council of the European Union, 2024).
 
 <p align="left">
   <img src="./assets_pm10_italia/sistema_monitoreo_hi_vol.png"
@@ -140,7 +140,7 @@ Un equipo de alto volumen aspira aire a un caudal controlado. El cabezal de entr
        width="650">
 </p>
 
-*Figura. Esquema pedagógico de un muestreador de alto volumen para PM$_{10}$, proporcionado para el estudio.*
+*Figura. Esquema pedagógico de un muestreador de alto volumen para PM<sub>10</sub>, proporcionado para el estudio.*
 
 > **Alcance de la imagen**
 >
@@ -151,27 +151,15 @@ Un equipo de alto volumen aspira aire a un caudal controlado. El cabezal de entr
 El procesamiento no usa directamente todas las lecturas. Primero se aplican reglas de admisibilidad:
 
 $$
-\begin{aligned}
-A_{ift}
-&=
-I\left\{
-\mathrm{Validity}=1,\,
-\mathrm{Verification}=1,\,
-Y_{ift}\ge 0
-\right\}
-\end{aligned}
+A_{ift}=I(\mathrm{Validity}=1,\ \mathrm{Verification}=1,\ Y_{ift}\ge 0)
 $$
 
-donde $Y_{ift}$ es una lectura del flujo $f$ en la estación $i$ y el tiempo $t$. La función $I\{\cdot\}$ vale 1 cuando todas las condiciones se cumplen y 0 en caso contrario.
+donde $Y_{ift}$ es una lectura del flujo $f$ en la estación $i$ y el tiempo $t$. La función $I(\cdot)$ vale 1 cuando todas las condiciones se cumplen y 0 en caso contrario.
 
 Si las lecturas son horarias, se exige un mínimo de 18 horas válidas en el día. La media diaria por flujo es:
 
 $$
-\overline{Y}_{ifd}
-=
-\frac{1}{n_{ifd}}
-\sum_{t\in d} A_{ift}Y_{ift},
-\qquad n_{ifd}\ge 18
+\overline{Y}_{ifd}=\frac{1}{n_{ifd}}\sum_{t\in d}A_{ift}Y_{ift},\qquad n_{ifd}\ge 18
 $$
 
 Cuando una estación tiene más de un flujo o método el mismo día, se toma la mediana entre flujos. Esta decisión reduce la influencia de un valor extremo proveniente de un único instrumento.
@@ -235,7 +223,7 @@ Las coordenadas de las estaciones se obtienen del servicio espacial oficial de l
        width="720">
 </p>
 
-*Figura. Red histórica de estaciones PM$_{10}$ y límites regionales NUTS 2 de Italia.*
+*Figura. Red histórica de estaciones PM<sub>10</sub> y límites regionales NUTS 2 de Italia.*
 
 > **¿Por qué es importante la ubicación?**
 >
@@ -245,7 +233,7 @@ Las coordenadas de las estaciones se obtienen del servicio espacial oficial de l
 
 ### Qué problema intenta resolver el modelo
 
-El objetivo no es solamente ordenar estaciones. Se desea construir una superficie continua de PM$_{10}$ para Italia en 2024. Una superficie continua asigna una estimación a cada punto de una malla nacional, incluso donde no hay equipo de medición.
+El objetivo no es solamente ordenar estaciones. Se desea construir una superficie continua de PM<sub>10</sub> para Italia en 2024. Una superficie continua asigna una estimación a cada punto de una malla nacional, incluso donde no hay equipo de medición.
 
 El modelo utiliza dos ideas:
 
@@ -255,7 +243,7 @@ El modelo utiliza dos ideas:
 
 > **Analogía intuitiva**
 >
-> Para estimar la temperatura de un lugar sin termómetro, sería razonable observar las estaciones cercanas y también conocer el clima habitual de la zona. El modelo de PM$_{10}$ hace algo semejante: combina el comportamiento histórico con la proximidad espacial y añade una medida de incertidumbre.
+> Para estimar la temperatura de un lugar sin termómetro, sería razonable observar las estaciones cercanas y también conocer el clima habitual de la zona. El modelo de PM<sub>10</sub> hace algo semejante: combina el comportamiento histórico con la proximidad espacial y añade una medida de incertidumbre.
 
 > **Términos geoespaciales que se utilizarán**
 >
@@ -278,11 +266,7 @@ El modelo utiliza dos ideas:
 Para cada estación se usan únicamente años anteriores a 2024, evitando que el modelo “vea” el resultado que debe predecir. La climatología reciente es:
 
 $$
-H_i
-=
-\frac{1}{m_i}
-\sum_{a=2019}^{2023}
-\overline{Y}_{ia}
+H_i=\frac{1}{m_i}\sum_{a=2019}^{2023}\overline{Y}_{ia}
 $$
 
 con los años válidos disponibles. También se calcula una media histórica más amplia, una desviación estándar, el número de años y una tendencia lineal:
@@ -324,9 +308,7 @@ Ejemplo de covariables históricas mostradas por el notebook.
 En la primera etapa, un proceso gaussiano interpola la climatología $H_i$ y produce $\widehat H(s)$. En la segunda, la concentración de 2024 se relaciona con esa climatología y se modela espacialmente lo que todavía queda sin explicar:
 
 $$
-Y_{2024}(s)
-=
-\beta_0+\beta_1\widehat{H}(s)+W_R(s)+\varepsilon(s)
+Y_{2024}(s)=\beta_0+\beta_1\widehat{H}(s)+W_R(s)+\varepsilon(s)
 $$
 
 $W_R(s)$ es la corrección espacial residual. $\varepsilon(s)$ representa variación local o error no explicado.
@@ -346,13 +328,7 @@ $W_R(s)$ es la corrección espacial residual. $\varepsilon(s)$ representa variac
 Si $W(s)$ es un proceso gaussiano con media $\mu(s)$ y covarianza $\kappa(s,s')$, entonces:
 
 $$
-\mathbf{W}
-=
-\begin{bmatrix}
-W(s_1) & \cdots & W(s_n)
-\end{bmatrix}^{\top}
-\sim
-\mathcal{N}_n\!\left(\boldsymbol{\mu},\boldsymbol{\Sigma}\right)
+\mathbf{W}=(W(s_1),\ldots,W(s_n))^{\top}\sim\mathcal{N}_n(\mu,\Sigma)
 $$
 
 donde $\mu_i=\mu(s_i)$ y $\Sigma_{ij}=\kappa(s_i,s_j)$.
@@ -360,27 +336,21 @@ donde $\mu_i=\mu(s_i)$ y $\Sigma_{ij}=\kappa(s_i,s_j)$.
 El modelo lineal espacial general es:
 
 $$
-\begin{aligned}
-Y(s_i)
-&=
-\mathbf{x}(s_i)^{\top}\boldsymbol{\beta}
-+W(s_i)+\varepsilon_i, \\
-\varepsilon_i
-&\overset{\mathrm{iid}}{\sim}
-\mathcal{N}(0,\tau^2)
-\end{aligned}
+Y(s_i)=\mathbf{x}(s_i)^{\top}\beta+W(s_i)+\varepsilon_i
 $$
 
-La parte $\mathbf{x}(s_i)^\top\boldsymbol{\beta}$ representa la variación explicada. $W(s_i)$ representa una superficie espacial latente y $\tau^2$ la variación no espacial.
+$$
+\varepsilon_i\sim\mathcal{N}(0,\tau^2)\quad(\mathrm{iid})
+$$
+
+La parte $\mathbf{x}(s_i)^\top\beta$ representa la variación explicada. $W(s_i)$ representa una superficie espacial latente y $\tau^2$ la variación no espacial.
 
 #### Estacionariedad e isotropía
 
 Un proceso es estacionario cuando su distribución no cambia al trasladar el sistema de coordenadas. Es isotrópico cuando la dependencia depende de la distancia, pero no de la dirección. Estas condiciones simplifican la covarianza:
 
 $$
-\operatorname{Cov}\!\left\{W(s),W(s')\right\}
-=
-\sigma^2\rho\!\left(\lVert s-s'\rVert;\phi,\nu\right)
+\mathrm{Cov}(W(s),W(s'))=\sigma^2\rho(\| s-s'\|;\phi,\nu)
 $$
 
 En Italia estas hipótesis son aproximaciones, porque montañas, costas e islas pueden crear comportamientos diferentes por dirección y región.
@@ -390,20 +360,13 @@ En Italia estas hipótesis son aproximaciones, porque montañas, costas e islas 
 El semivariograma cuantifica cuánto difieren dos observaciones separadas por una distancia:
 
 $$
-\gamma(s,s')
-=
-\frac{1}{2}
-\operatorname{Var}\!\left\{W(s)-W(s')\right\}
+\gamma(s,s')=\frac{1}{2}\,\mathrm{Var}(W(s)-W(s'))
 $$
 
 Su estimador por intervalos de distancia es:
 
 $$
-\widehat{\gamma}(d)
-=
-\frac{1}{2N(d)}
-\sum_{(i,j)\in N(d)}
-\left\{y(s_i)-y(s_j)\right\}^{2}
+\widehat{\gamma}(d)=\frac{1}{2N(d)}\sum_{(i,j)\in N(d)}(y(s_i)-y(s_j))^2
 $$
 
 En lenguaje sencillo, si $\widehat{\gamma}(d)$ aumenta con la distancia, las estaciones lejanas son menos parecidas.
@@ -413,15 +376,7 @@ En lenguaje sencillo, si $\widehat{\gamma}(d)$ aumenta con la distancia, las est
 El modelo usa una función Matérn con $\nu=3/2$:
 
 $$
-\rho(h;\phi,\nu)
-=
-\frac{2^{1-\nu}}{\Gamma(\nu)}
-\left(
-\frac{\sqrt{2\nu}\,h}{\phi}
-\right)^{\nu}
-K_{\nu}\!\left(
-\frac{\sqrt{2\nu}\,h}{\phi}
-\right)
+\rho(h;\phi,\nu)=\frac{2^{1-\nu}}{\Gamma(\nu)}(\frac{\sqrt{2\nu}\,h}{\phi})^{\nu}K_{\nu}(\frac{\sqrt{2\nu}\,h}{\phi})
 $$
 
 donde $h=\|s-s'\|$. $\phi$ controla la escala espacial y $\nu$ la suavidad. $K_\nu$ es una función de Bessel modificada.
@@ -434,53 +389,37 @@ donde $h=\|s-s'\|$. $\phi$ controla la escala espacial y $\nu$ la suavidad. $K_\
 
 Para el modelo matricial
 
+*****************
+
 $$
-\mathbf{Y}
-\sim
-\mathcal{N}_n\!\left(
-\mathbf{X}\boldsymbol{\beta},
-\sigma^2\mathbf{R}_{\phi}+\tau^2\mathbf{I}
-\right)
+\mathbf{Y}\sim\mathcal{N}_n(\mathbf{X}\beta,\sigma^2\mathbf{R}_{\phi}+\tau^2\mathbf{I})
 $$
 
 los parámetros se ajustan maximizando la verosimilitud. La predicción en nuevos lugares se obtiene mediante la distribución normal condicional:
 
 $$
-\mathbf{Y}_{*}\mid\mathbf{Y}=\mathbf{y}
-\sim
-\mathcal{N}\!\left(
-\boldsymbol{\mu}_{*\mid y},
-\boldsymbol{\Sigma}_{*\mid y}
-\right)
+\mathbf{Y}_{*}\mid\mathbf{Y}=\mathbf{y}\sim\mathcal{N}(\mu_{*\mid y},\Sigma_{*\mid y})
 $$
 
-$$
-\boldsymbol{\mu}_{*\mid y}
-=
-\mathbf{X}_{*}\boldsymbol{\beta}
-+
-\boldsymbol{\Sigma}_{*,y}
-\left(
-\boldsymbol{\Sigma}_{y}+\tau^2\mathbf{I}
-\right)^{-1}
-\left(
-\mathbf{y}-\mathbf{X}\boldsymbol{\beta}
-\right)
-$$
+
+
 
 $$
-\boldsymbol{\Sigma}_{*\mid y}
-=
-\tau^2\mathbf{I}
-+
-\boldsymbol{\Sigma}_{*}
--
-\boldsymbol{\Sigma}_{*,y}
-\left(
-\boldsymbol{\Sigma}_{y}+\tau^2\mathbf{I}
-\right)^{-1}
-\boldsymbol{\Sigma}_{y,*}
+\mathbf{Y}_{0}\mid\mathbf{Y}=\mathbf{y}\sim\mathcal{N}(\mu_{0\mid y},\Sigma_{0\mid y})
 $$
+
+
+$$
+\mu_{0\mid y}=\mathbf{X}_{0}\boldsymbol{\beta}+\Sigma_{0,y}(\Sigma_{y}+\tau^{2}\mathbf{I})^{-1}(\mathbf{y}-\mathbf{X}\boldsymbol{\beta})
+$$
+
+
+$$
+\Sigma_{0\mid y}=\tau^{2}\mathbf{I}+\Sigma_{0}-\Sigma_{0,y}(\Sigma_{y}+\tau^{2}\mathbf{I})^{-1}\Sigma_{y,0}
+$$
+
+
+
 
 La primera expresión produce el mapa de concentración. La segunda produce el mapa de incertidumbre.
 
@@ -522,27 +461,24 @@ Una validación aleatoria puede ser demasiado optimista porque coloca estaciones
 Sea $y_i$ el valor observado, $\widehat y_i$ la predicción y $n$ el número de estaciones evaluadas.
 
 $$
-\begin{aligned}
-\operatorname{RMSE}
-&=
-\sqrt{\frac{1}{n}\sum_{i=1}^{n}\left(y_i-\widehat{y}_i\right)^2}, \\
-\operatorname{MAE}
-&=
-\frac{1}{n}\sum_{i=1}^{n}\left|y_i-\widehat{y}_i\right|, \\
-R^2
-&=
-1-
-\frac{\sum_i\left(y_i-\widehat{y}_i\right)^2}
-{\sum_i\left(y_i-\overline{y}\right)^2}, \\
-\operatorname{Sesgo}
-&=
-\frac{1}{n}\sum_i\left(\widehat{y}_i-y_i\right)
-\end{aligned}
+\mathrm{RMSE}=\sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i-\widehat{y}_i)^2}
+$$
+
+$$
+\mathrm{MAE}=\frac{1}{n}\sum_{i=1}^{n}|y_i-\widehat{y}_i|
+$$
+
+$$
+R^2=1-\frac{\sum_i(y_i-\widehat{y}_i)^2}{\sum_i(y_i-\overline{y})^2}
+$$
+
+$$
+\mathrm{Sesgo}=\frac{1}{n}\sum_i(\widehat{y}_i-y_i)
 $$
 
 > **Cómo interpretar las métricas**
 >
-> RMSE y MAE se expresan en $\mu\mathrm{g}\,\mathrm{m}^{-3}$: cuanto menores, mejor. El RMSE penaliza más los errores grandes. $R^2$ compara el modelo con una predicción basada en la media: un valor positivo indica mejora y un valor cercano a 1, mayor capacidad explicativa. El sesgo muestra si el modelo tiende a sobrestimar o subestimar.
+> RMSE y MAE se expresan en µg/m³: cuanto menores, mejor. El RMSE penaliza más los errores grandes. $R^2$ compara el modelo con una predicción basada en la media: un valor positivo indica mejora y un valor cercano a 1, mayor capacidad explicativa. El sesgo muestra si el modelo tiende a sobrestimar o subestimar.
 
 | Modelo                        |  RMSE |   MAE |  $R^2$ |  Sesgo |
 |:------------------------------|------:|------:|-------:|-------:|
@@ -567,15 +503,10 @@ Desempeño medio por validación espacial.
 > El modelo Ridge más proceso gaussiano residual obtuvo:
 
 $$
-\begin{aligned}
-\operatorname{RMSE} &= 2.718, \\
-\operatorname{MAE} &= 1.884, \\
-R^2 &= 0.696, \\
-\operatorname{Sesgo} &= 0.140
-\end{aligned}
+\mathrm{RMSE}=2.718,\qquad \mathrm{MAE}=1.884,\qquad R^2=0.696,\qquad \mathrm{Sesgo}=0.140
 $$
 
-> El RMSE es 49.6% menor que el de la media de entrenamiento. El $R^2$ indica que el modelo reproduce aproximadamente el 70% de la variación observada en la validación espacial. El sesgo es pequeño frente a una media nacional cercana a 22.5 $\mu\mathrm{g}\,\mathrm{m}^{-3}$.
+> El RMSE es 49.6% menor que el de la media de entrenamiento. El $R^2$ indica que el modelo reproduce aproximadamente el 70% de la variación observada en la validación espacial. El sesgo es pequeño frente a una media nacional cercana a 22.5 µg/m³.
 
 > **Conclusión correcta sobre la calidad del modelo**
 >
@@ -599,7 +530,7 @@ $$
 | 2023 |        549 | 21.94 |   21.62 | 15.62 | 29.96 |
 | 2024 |        554 | 22.46 |   22.07 | 16.05 | 29.54 |
 
-En 2024, las 554 estaciones válidas presentan una media entre estaciones de 22.46 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ y una mediana de 22.07 $\mu\mathrm{g}\,\mathrm{m}^{-3}$. El percentil 10 es 16.05 y el percentil 90 es 29.54 $\mu\mathrm{g}\,\mathrm{m}^{-3}$. La media nacional simple supera en aproximadamente 50% la guía anual de la OMS y en 12% el valor europeo previsto para 2030.
+En 2024, las 554 estaciones válidas presentan una media entre estaciones de 22.46 µg/m³ y una mediana de 22.07 µg/m³. El percentil 10 es 16.05 y el percentil 90 es 29.54 µg/m³. La media nacional simple supera en aproximadamente 50% la guía anual de la OMS y en 12% el valor europeo previsto para 2030.
 
 > **La media entre estaciones no es la media de la población**
 >
@@ -613,9 +544,9 @@ En 2024, las 554 estaciones válidas presentan una media entre estaciones de 22.
        width="990">
 </p>
 
-*Figura. Predicción nacional de PM$_{10}$, incertidumbre y probabilidad de superar 20 <em>μ</em>g m<sup>−3</sup>.*
+*Figura. Predicción nacional de PM<sub>10</sub>, incertidumbre y probabilidad de superar 20 <em>μ</em>g m<sup>−3</sup>.*
 
-El primer panel representa la concentración anual esperada. El segundo muestra la desviación estándar predictiva: valores altos indican menor precisión. El tercero muestra la probabilidad de que la concentración supere 20 $\mu\mathrm{g}\,\mathrm{m}^{-3}$. Una probabilidad alta no es una concentración adicional; expresa cuánta evidencia estadística existe de superar el umbral.
+El primer panel representa la concentración anual esperada. El segundo muestra la desviación estándar predictiva: valores altos indican menor precisión. El tercero muestra la probabilidad de que la concentración supere 20 µg/m³. Una probabilidad alta no es una concentración adicional; expresa cuánta evidencia estadística existe de superar el umbral.
 
 ### Ranking regional NUTS 2
 
@@ -630,7 +561,7 @@ El primer panel representa la concentración anual esperada. El segundo muestra 
 | ITF6   | Calabria       |          21.14 |          4.82 |       0.588 |           17.82 |
 | ITF4   | Puglia         |          20.94 |          4.03 |       0.590 |           21.59 |
 
-Regiones con mayor media predicha de PM$_{10}$ en 2024.
+Regiones con mayor media predicha de PM<sub>10</sub> en 2024.
 
 | NUTS 2 | Región         | Estaciones | Días $>50$ | Tendencia anual |
 |:-------|:---------------|-----------:|-----------:|----------------:|
@@ -643,9 +574,9 @@ Regiones con mayor media predicha de PM$_{10}$ en 2024.
 | ITF6   | Calabria       |          3 |        8.0 |          -0.281 |
 | ITF4   | Puglia         |         45 |        9.4 |          -0.080 |
 
-Regiones con mayor media predicha de PM$_{10}$ en 2024.
+Regiones con mayor media predicha de PM<sub>10</sub> en 2024.
 
-DE predictiva: desviación estándar de la predicción; valores mayores indican más incertidumbre. Prob. $>20$: probabilidad media estimada de superar 20 $\mu\mathrm{g}\,\mathrm{m}^{-3}$. Días $>50$: promedio anual de días por estación con concentración diaria superior a 50 $\mu\mathrm{g}\,\mathrm{m}^{-3}$. La tendencia está expresada en $\mu\mathrm{g}\,\mathrm{m}^{-3}$ por año.
+DE predictiva: desviación estándar de la predicción; valores mayores indican más incertidumbre. Prob. $>20$: probabilidad media estimada de superar 20 µg/m³. Días $>50$: promedio anual de días por estación con concentración diaria superior a 50 µg/m³. La tendencia está expresada en µg/m³ por año.
 
 <p align="left">
   <img src="./assets_pm10_italia/07_coropleta_regiones_nuts2.png"
@@ -665,19 +596,19 @@ DE predictiva: desviación estándar de la predicción; valores mayores indican 
 
 #### Veneto
 
-Veneto encabeza el ranking con 25.18 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ predichos y 27.48 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ observados en 33 estaciones. La probabilidad regional media de superar 20 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ es 0.816. La tendencia histórica media es negativa, lo que indica mejora, pero el nivel de 2024 continúa 68% por encima de la guía anual de la OMS.
+Veneto encabeza el ranking con 25.18 µg/m³ predichos y 27.48 µg/m³ observados en 33 estaciones. La probabilidad regional media de superar 20 µg/m³ es 0.816. La tendencia histórica media es negativa, lo que indica mejora, pero el nivel de 2024 continúa 68% por encima de la guía anual de la OMS.
 
 #### Lombardia
 
-Lombardia presenta 23.90 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ predichos, 26.32 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ observados y 66 estaciones. La amplia red mejora la base descriptiva, aunque no elimina la necesidad de considerar meteorología y diferencias entre tráfico, fondo urbano e industria.
+Lombardia presenta 23.90 µg/m³ predichos, 26.32 µg/m³ observados y 66 estaciones. La amplia red mejora la base descriptiva, aunque no elimina la necesidad de considerar meteorología y diferencias entre tráfico, fondo urbano e industria.
 
 #### Sicilia y Campania
 
-Sicilia alcanza 23.31 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ predichos y Campania 22.44 $\mu\mathrm{g}\,\mathrm{m}^{-3}$. Campania muestra una diferencia relevante entre media predicha y media observada. Esto puede reflejar estaciones ubicadas en microambientes más contaminados que la superficie regional suavizada.
+Sicilia alcanza 23.31 µg/m³ predichos y Campania 22.44 µg/m³. Campania muestra una diferencia relevante entre media predicha y media observada. Esto puede reflejar estaciones ubicadas en microambientes más contaminados que la superficie regional suavizada.
 
 #### Emilia-Romagna y Lazio
 
-Emilia-Romagna y Lazio superan 21.9 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ predichos. En Lazio se encuentra Roma; la escala regional combina áreas metropolitanas y territorios menos densos, por lo que no representa una concentración uniforme en toda la región.
+Emilia-Romagna y Lazio superan 21.9 µg/m³ predichos. En Lazio se encuentra Roma; la escala regional combina áreas metropolitanas y territorios menos densos, por lo que no representa una concentración uniforme en toda la región.
 
 ### Cambios a través del tiempo
 
@@ -695,7 +626,7 @@ Emilia-Romagna y Lazio superan 21.9 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ predichos. 
        width="990">
 </p>
 
-*Figura. Matriz región–año de la concentración media de PM$_{10}$.*
+*Figura. Matriz región–año de la concentración media de PM<sub>10</sub>.*
 
 La mayoría de las regiones principales muestra una tendencia descendente. Sin embargo, una reducción histórica no significa que el nivel actual sea bajo. El análisis debe considerar simultáneamente el nivel de 2024, la trayectoria y la frecuencia de días elevados.
 
@@ -738,23 +669,23 @@ El notebook asigna cada estación al centro urbano italiano más próximo dentro
 
 #### Acerra
 
-Acerra registra 39.14 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ a partir de dos estaciones. El valor equivale a 2.61 veces la guía anual de la OMS, supera en 96% el límite europeo de 2030 y se encuentra cerca del límite anual europeo transitorio de 40 $\mu\mathrm{g}\,\mathrm{m}^{-3}$. El promedio de 70 días por estación por encima de 50 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ indica episodios frecuentes.
+Acerra registra 39.14 µg/m³ a partir de dos estaciones. El valor equivale a 2.61 veces la guía anual de la OMS, supera en 96% el límite europeo de 2030 y se encuentra cerca del límite anual europeo transitorio de 40 µg/m³. El promedio de 70 días por estación por encima de 50 µg/m³ indica episodios frecuentes.
 
 #### Catania
 
-Catania presenta 33.87 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ y una tendencia histórica positiva de 0.730 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ por año. El resultado es especialmente relevante porque combina un nivel alto con ausencia de descenso en las estaciones consideradas.
+Catania presenta 33.87 µg/m³ y una tendencia histórica positiva de 0.730 µg/m³ por año. El resultado es especialmente relevante porque combina un nivel alto con ausencia de descenso en las estaciones consideradas.
 
 #### Cassino y Volla
 
-Cassino alcanza 32.19 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ y Volla 31.99 $\mu\mathrm{g}\,\mathrm{m}^{-3}$. Volla muestra una fuerte tendencia negativa, lo que sugiere mejora histórica, aunque su nivel de 2024 sigue siendo elevado. Cassino muestra una tendencia ligeramente positiva.
+Cassino alcanza 32.19 µg/m³ y Volla 31.99 µg/m³. Volla muestra una fuerte tendencia negativa, lo que sugiere mejora histórica, aunque su nivel de 2024 sigue siendo elevado. Cassino muestra una tendencia ligeramente positiva.
 
 #### Crema, Cremona, Maddaloni y Vicenza
 
-Estos entornos se sitúan alrededor de 30–31 $\mu\mathrm{g}\,\mathrm{m}^{-3}$. Las tendencias son negativas, pero las medias todavía duplican aproximadamente la guía anual de la OMS.
+Estos entornos se sitúan alrededor de 30–31 µg/m³. Las tendencias son negativas, pero las medias todavía duplican aproximadamente la guía anual de la OMS.
 
 ### Venezia–Mestre
 
-Mestre aparece en el ranking con 29.70 $\mu\mathrm{g}\,\mathrm{m}^{-3}$, dos estaciones y 47 días promedio por encima de 50 $\mu\mathrm{g}\,\mathrm{m}^{-3}$. La media es casi el doble de la guía OMS y 48% superior al valor europeo de 2030.
+Mestre aparece en el ranking con 29.70 µg/m³, dos estaciones y 47 días promedio por encima de 50 µg/m³. La media es casi el doble de la guía OMS y 48% superior al valor europeo de 2030.
 
 > **Venecia no es un único ambiente**
 >
@@ -762,15 +693,15 @@ Mestre aparece en el ranking con 29.70 $\mu\mathrm{g}\,\mathrm{m}^{-3}$, dos est
 
 ### Roma
 
-Roma no aparece entre las diez primeras bajo la regla estricta de 25 km y mínimo de dos estaciones del ranking mostrado. Un análisis de sensibilidad territorial de 35 km, realizado con los resúmenes de 2024, reunió 17 estaciones y produjo aproximadamente 24.30 $\mu\mathrm{g}\,\mathrm{m}^{-3}$. Este valor es 62% superior a la guía OMS y 21.5% superior al valor europeo de 2030.
+Roma no aparece entre las diez primeras bajo la regla estricta de 25 km y mínimo de dos estaciones del ranking mostrado. Un análisis de sensibilidad territorial de 35 km, realizado con los resúmenes de 2024, reunió 17 estaciones y produjo aproximadamente 24.30 µg/m³. Este valor es 62% superior a la guía OMS y 21.5% superior al valor europeo de 2030.
 
 > **Qué significa para los habitantes de Roma**
 >
-> La cifra no indica que cada persona respire exactamente 24.30 $\mu\mathrm{g}\,\mathrm{m}^{-3}$. La exposición cambia por barrio, cercanía a vías, horario, trabajo, actividad física y ventilación interior. El resultado sí indica que una parte importante del entorno metropolitano merece seguimiento y una cartografía urbana de mayor resolución.
+> La cifra no indica que cada persona respire exactamente 24.30 µg/m³. La exposición cambia por barrio, cercanía a vías, horario, trabajo, actividad física y ventilación interior. El resultado sí indica que una parte importante del entorno metropolitano merece seguimiento y una cartografía urbana de mayor resolución.
 
 ### Consecuencias potenciales para la población
 
-Las ciudades con medias anuales próximas a 30–39 $\mu\mathrm{g}\,\mathrm{m}^{-3}$ presentan una presión ambiental claramente superior a las referencias sanitarias. Para los habitantes, la principal preocupación no es un único día aislado, sino la combinación de exposición repetida, episodios diarios y susceptibilidad individual.
+Las ciudades con medias anuales próximas a 30–39 µg/m³ presentan una presión ambiental claramente superior a las referencias sanitarias. Para los habitantes, la principal preocupación no es un único día aislado, sino la combinación de exposición repetida, episodios diarios y susceptibilidad individual.
 
 Las medidas de salud pública deben concentrarse en:
 
@@ -853,10 +784,7 @@ La siguiente versión debe incorporar meteorología diaria, elevación, uso del 
 Una extensión diaria puede escribirse como:
 
 $$
-\log\!\left\{1+Y(s,t)\right\}
-=
-\mathbf{x}(s,t)^{\top}\boldsymbol{\beta}
-+W(s)+U(t)+V(s,t)+\varepsilon(s,t)
+\log(1+Y(s,t))=\mathbf{x}(s,t)^{\top}\beta+W(s)+U(t)+V(s,t)+\varepsilon(s,t)
 $$
 
 donde $U(t)$ representa la dependencia temporal y $V(s,t)$ una interacción espacio–tiempo.
@@ -865,7 +793,7 @@ donde $U(t)$ representa la dependencia temporal y $V(s,t)$ una interacción espa
 
 > **Conclusión general**
 >
-> Italia muestra una reducción histórica de PM$_{10}$, pero la media de 2024 entre estaciones válidas, 22.46 $\mu\mathrm{g}\,\mathrm{m}^{-3}$, continúa por encima de la guía anual de la OMS y del valor europeo previsto para 2030. El problema no es uniforme: Veneto, Lombardia, Sicilia y Campania concentran valores regionales altos, mientras Acerra y Catania encabezan el ranking urbano.
+> Italia muestra una reducción histórica de PM<sub>10</sub>, pero la media de 2024 entre estaciones válidas, 22.46 µg/m³, continúa por encima de la guía anual de la OMS y del valor europeo previsto para 2030. El problema no es uniforme: Veneto, Lombardia, Sicilia y Campania concentran valores regionales altos, mientras Acerra y Catania encabezan el ranking urbano.
 
 1.  La ampliación histórica mejora de forma sustancial la predicción de 2024.
 
@@ -1002,7 +930,7 @@ Resultado de la caché de errores de lectura.
 
 ### Algoritmo 3. Ingesta, control de calidad y agregación estación–día
 
-**Entrada:** Archivos EEA E1a de PM$_{10}$
+**Entrada:** Archivos EEA E1a de PM<sub>10</sub>
 
 **Salida:** Tabla estación–día
 
@@ -1118,7 +1046,7 @@ Resultado de la caché de errores de lectura.
 
 4.  Calcular la media del modelo en dos etapas
 
-5.  Propagar incertidumbre y calcular probabilidades de superar 15, 20 y 40 $\mu\mathrm{g}\,\mathrm{m}^{-3}$
+5.  Propagar incertidumbre y calcular probabilidades de superar 15, 20 y 40 µg/m³
 
 ### Algoritmo 10. Agregación regional NUTS 2
 
@@ -1172,7 +1100,7 @@ Resultado de la caché de errores de lectura.
 
 1.  Chacón Montalván, E. A. (2026). *Notas de estadística espacial: Procesos estocásticos, variación espacial continua, procesos puntuales y modelos para datos areales*. Universidad Nacional de Ingeniería.
 
-2.  World Health Organization. (2021). *WHO global air quality guidelines: Particulate matter (PM$_{2.5}$ and PM$_{10}$), ozone, nitrogen dioxide, sulfur dioxide and carbon monoxide*. World Health Organization. <https://www.who.int/publications/i/item/9789240034228>
+2.  World Health Organization. (2021). *WHO global air quality guidelines: Particulate matter (PM$_{2.5}$ and PM<sub>10</sub>), ozone, nitrogen dioxide, sulfur dioxide and carbon monoxide*. World Health Organization. <https://www.who.int/publications/i/item/9789240034228>
 
 3.  World Health Organization. (2024, October 24). *Ambient (outdoor) air pollution*. <https://www.who.int/news-room/fact-sheets/detail/ambient-(outdoor)-air-quality-and-health>
 
@@ -1205,8 +1133,8 @@ Resultado de la caché de errores de lectura.
 | **PM**                                                          | *Particulate Matter* o materia particulada: mezcla de partículas sólidas y gotas líquidas suspendidas en el aire.                                            |
 | **PM<sub>10</sub>**                                             | Fracción de materia particulada con diámetro aerodinámico igual o menor que $10\,\mu\mathrm{m}$. Es inhalable y puede alcanzar las vías respiratorias.       |
 | **PM<sub>2.5</sub>**                                            | Partículas finas con diámetro aerodinámico igual o menor que $2.5\,\mu\mathrm{m}$. Pueden penetrar más profundamente en los pulmones que el PM<sub>10</sub>. |
-| **$\boldsymbol{\mu}\mathrm{\mathbf{m}}$**                       | Micrómetro, unidad equivalente a una millonésima de metro: $1\,\mu\mathrm{m}=10^{-6}\,\mathrm{m}$.                                                           |
-| **$\boldsymbol{\mu}\mathrm{\mathbf{g}}/\mathrm{\mathbf{m}}^3$** | Microgramos por metro cúbico. Unidad utilizada para expresar la concentración de partículas en el aire.                                                      |
+| **µm**                       | Micrómetro, unidad equivalente a una millonésima de metro: $1\,\mu\mathrm{m}=10^{-6}\,\mathrm{m}$.                                                           |
+| **µg/m³** | Microgramos por metro cúbico. Unidad utilizada para expresar la concentración de partículas en el aire.                                                      |
 | **OMS / WHO**                                                   | Organización Mundial de la Salud / *World Health Organization*. Institución que publica recomendaciones sobre calidad del aire y salud.                      |
 | **UE / EU**                                                     | Unión Europea / *European Union*. Marco político y territorial en el que se armonizan estadísticas y normas ambientales.                                     |
 | **EEA / AEMA**                                                  | Agencia Europea de Medio Ambiente. Organismo que recopila y analiza información ambiental europea.                                                           |
