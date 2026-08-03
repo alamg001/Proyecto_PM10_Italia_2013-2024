@@ -3,10 +3,10 @@
 ## Caso: Contaminante PM$_{10}$
 
 
-<p align="center">
+<p align="left">
   <img src="./assets_pm10_italia/logo_uni.png"
        alt="Logo de la Universidad Nacional de Ingeniería"
-       width="70">
+       width="150">
 </p>
 
 **UNIVERSIDAD NACIONAL DE INGENIERÍA**  
@@ -31,6 +31,11 @@
 
 ![Infografía introductoria sobre PM10 en Italia](assets_pm10_italia/PM10_Italia_v1.png)
 
+<p align="left">
+  <img src="./assets_pm10_italia/PM10_Italia_v1.png"
+       alt="Infografia PM10 en Italia"
+       width="150">
+</p>
 ---
 
 ## Cómo leer este informe
@@ -58,6 +63,9 @@ PM significa *particulate matter*, o materia particulada. No es un gas: es una m
 > Un micrómetro es una millonésima de metro. El número 10 no indica la cantidad de contaminación, sino el tamaño máximo de las partículas incluidas en esta categoría. La concentración se expresa en microgramos de partículas por metro cúbico de aire, es decir, $\mu\mathrm{g}\,\mathrm{m}^{-3}$.
 
 ![Definición sencilla del PM10 y principales familias de fuentes.](assets_pm10_italia/14_v2_que_es_pm10.png)
+
+
+
 
 *Figura. Definición sencilla del PM$_{10}$ y principales familias de fuentes.*
 
