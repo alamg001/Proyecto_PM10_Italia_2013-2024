@@ -2,7 +2,12 @@
 
 ## Caso: Contaminante PM$_{10}$
 
-![Logo de la Universidad Nacional de Ingeniería](assets_pm10_italia/logo_uni.png)
+
+<p align="center">
+  <img src="./assets_pm10_italia/logo_uni.png"
+       alt="Logo de la Universidad Nacional de Ingeniería"
+       width="70">
+</p>
 
 **UNIVERSIDAD NACIONAL DE INGENIERÍA**  
 **FIEECS - DCIES**  
